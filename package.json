@@ -1,0 +1,63 @@
+{
+  "name": "temporal-extra",
+  "version": "0.0.0",
+  "description": "Locale-aware date utilities for Temporal: week numbers, date adjusters, polyfill support and more",
+  "author": "Ben Scholzen 'DASPRiD'",
+  "keywords": [
+    "temporal",
+    "week-info",
+    "adjusters",
+    "inspectors",
+    "polyfill",
+    "i18n",
+    "typescript"
+  ],
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dasprid/temporal-extra.git"
+  },
+  "type": "module",
+  "sideEffects": [
+    "./dist/week-info/polyfill.js"
+  ],
+  "files": [
+    "dist/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./week-info/polyfill": {
+      "import": {
+        "types": "./dist/week-info/polyfill.d.ts",
+        "default": "./dist/week-info/polyfill.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "c8 tsx --test",
+    "test:ci": "c8 --reporter=lcov tsx --test",
+    "format": "biome format . --write",
+    "check": "biome check . --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^22.15.30",
+    "c8": "^10.1.3",
+    "cldr-core": "^47.0.0",
+    "lefthook": "^1.11.13",
+    "temporal-polyfill": "^0.3.0",
+    "temporal-spec": "^0.3.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
+}
