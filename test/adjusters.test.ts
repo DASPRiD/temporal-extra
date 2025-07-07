@@ -6,6 +6,7 @@ import {
     SUNDAY,
     TUESDAY,
     WEDNESDAY,
+    endOfDay,
     firstDayOfMonth,
     firstDayOfNextMonth,
     firstDayOfNextYear,
@@ -20,6 +21,7 @@ import {
     previousBusinessDay,
     previousDayOfWeek,
     previousOrSameDayOfWeek,
+    startOfDay,
 } from "../src/index.js";
 
 if (typeof Temporal === "undefined") {
@@ -198,6 +200,20 @@ describe("adjusters", () => {
         it("returns Jan 1 of next year", () => {
             const date = makeDate("2024-06-18");
             assert.equal(firstDayOfNextYear(date).toString(), "2025-01-01");
+        });
+    });
+
+    describe("startOfDay", () => {
+        it("returns start of a given day", () => {
+            const date = Temporal.PlainDateTime.from("2025-01-01T15:12:44");
+            assert.equal(startOfDay(date).toString(), "2025-01-01T00:00:00");
+        });
+    });
+
+    describe("endOfDay", () => {
+        it("returns end of a given day", () => {
+            const date = Temporal.PlainDateTime.from("2025-01-01T15:12:44");
+            assert.equal(endOfDay(date).toString(), "2025-01-01T23:59:59.999999999");
         });
     });
 });

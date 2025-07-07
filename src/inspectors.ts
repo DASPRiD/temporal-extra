@@ -15,7 +15,7 @@ const getFirstWeekStart = (year: number, weekInfo: Intl.WeekInfo): Temporal.Plai
 };
 
 /**
- * Calculates locale-aware week number
+ * Calculates locale-aware week number.
  */
 export const localeAwareWeekNumber = (
     date: InspectableDate,
