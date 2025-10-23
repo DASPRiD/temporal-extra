@@ -15,7 +15,7 @@
   "license": "BSD-2-Clause",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dasprid/temporal-extra.git"
+    "url": "git+https://github.com/DASPRiD/temporal-extra.git"
   },
   "type": "module",
   "sideEffects": [
