@@ -40,17 +40,6 @@ const getFirstDay = (region: string): [string, boolean] => {
     ];
 };
 
-const getMinDays = (region: string): [string, boolean] => {
-    const rawMinDays =
-        weekData.minDays[region as keyof typeof weekData.minDays] ?? weekData.minDays["001"];
-
-    if (!rawMinDays) {
-        throw new Error(`Failed to find min days for ${region}`);
-    }
-
-    return [rawMinDays, region !== "001" && rawMinDays === weekData.minDays["001"]];
-};
-
 const getWeekend = (region: string): [string, boolean] => {
     const rawWeekendStart =
         weekData.weekendStart[region as keyof typeof weekData.weekendStart] ??
@@ -85,7 +74,7 @@ const getWeekend = (region: string): [string, boolean] => {
 };
 
 const packRegionData = (region: string): string | null => {
-    const elements = [getFirstDay(region), getMinDays(region), getWeekend(region)];
+    const elements = [getFirstDay(region), getWeekend(region)];
 
     while (elements.length > 0 && elements[elements.length - 1][1]) {
         elements.pop();
@@ -131,8 +120,8 @@ const formatRegionData = (data: RegionData): string => {
 
 const typescript = [
     "// Auto generated, do not modify manually\n",
-    "export type CompleteWeekInfo = [number, number, number[]];\n",
-    "export type PartialWeekInfo = [number, number?, number[]?];\n",
+    "export type CompleteWeekInfo = [number, number[]];\n",
+    "export type PartialWeekInfo = [number, number[]?];\n",
     "export type RegionData = Record<string, PartialWeekInfo>;\n\n",
     `export const worldDefaults: CompleteWeekInfo = ${worldDefaults};\n`,
     `export const regionData: RegionData = ${formatRegionData(regionData)};\n`,

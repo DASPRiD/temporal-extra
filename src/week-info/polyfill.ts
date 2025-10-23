@@ -7,14 +7,12 @@ if (!("getWeekInfo" in Intl.Locale.prototype)) {
 
     type WeekInfo = {
         firstDay: number;
-        minimalDays: number;
         weekend: number[];
     };
 
     const expandWeekInfo = (weekInfo: PartialWeekInfo): WeekInfo => ({
         firstDay: weekInfo[0],
-        minimalDays: weekInfo[1] ?? worldDefaults[1],
-        weekend: weekInfo[2] ?? worldDefaults[2],
+        weekend: weekInfo[1] ?? worldDefaults[1],
     });
 
     Object.defineProperty(Intl.Locale.prototype, "getWeekInfo", {

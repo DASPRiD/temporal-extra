@@ -78,21 +78,6 @@ lastDayOfYear(date);               // 2024-12-31
 
 All functions are type-safe and maintain the input type (`PlainDate`, `PlainDateTime`, or `ZonedDateTime`).
 
-## Inspectors
-
-Get locale-aware week numbers:
-
-```ts
-import { localeAwareWeekNumber } from "temporal-extra";
-
-const date = Temporal.PlainDate.from("2023-01-01");
-
-localeAwareWeekNumber(date, "en-US"); // 1 (US week rules)
-localeAwareWeekNumber(date, "de-DE"); // 52 (ISO-8601 rules)
-```
-
-Internally, this uses the `Intl.Locale.getWeekInfo()` proposal and falls back to a polyfill if necessary.
-
 ## Polyfill support
 
 The module automatically loads the `Intl.Locale.getWeekInfo()` polyfill only when needed (e.g. in Node or older
@@ -108,7 +93,7 @@ Now you can use the API even when your environment does not support it:
 
 ```ts
 new Intl.Locale("de-DE").getWeekInfo();
-// { firstDay: 1, weekend: [6, 7], minimalDays: 4 }
+// { firstDay: 1, weekend: [6, 7] }
 ```
 
 The polyfill is tiny, brotli-compressed clocking in at just a little over 400 bytes! 
