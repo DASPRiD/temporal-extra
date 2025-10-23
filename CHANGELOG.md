@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/DASPRiD/temporal-extra/compare/v1.1.0...v1.1.1) (2025-10-23)
+
+
+### Bug Fixes
+
+* add provenance attestation ([f391c7b](https://github.com/DASPRiD/temporal-extra/commit/f391c7b0f883595b6e41b04dcb3101ac5907c0f1))
+* remove usage of localeAwareWeekNumber inspector ([e9ae865](https://github.com/DASPRiD/temporal-extra/commit/e9ae865e51d62e3e1d2b0d0ec48b2fa5d72401eb))
+
 # [1.1.0](https://github.com/dasprid/temporal-extra/compare/v1.0.0...v1.1.0) (2025-07-07)
 
 
