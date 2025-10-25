@@ -9,7 +9,7 @@ Built on top of the Temporal API, with optional polyfill support.
 # Features
 
 - Adjusters: Jump to previous/next business day, week day, or boundary of a month/year.
-- Inspectors: Get accurate week numbers using locale-specific rules (like ISO-8601, US, or Middle Eastern systems).
+- Comparators: Compare Temporal instances to reference.
 - Polyfill support: Includes a tiny TypeScript-compatible Intl.Locale.getWeekInfo() polyfill.
 
 # Installation
@@ -77,6 +77,27 @@ lastDayOfYear(date);               // 2024-12-31
 ```
 
 All functions are type-safe and maintain the input type (`PlainDate`, `PlainDateTime`, or `ZonedDateTime`).
+
+## Comparators
+
+Check if a given temporal is before, equal or after another temporal:
+
+```ts
+import {
+  isBefore,
+  isBeforeOrEuqal,
+  isAfter,
+  isAfterOrEuqal,
+} from "temporal-extra";
+
+const date = Temporal.PlainDate.from("2024-06-18");
+const reference = Temporal.PlainDate.from("2024-06-19");
+
+isBefore(date, reference);        // true
+isBeforeOrEqual(date, reference); // false
+isAfter(date, reference);         // false
+isAfterOrEqual(date, reference);  // false
+```
 
 ## Polyfill support
 
