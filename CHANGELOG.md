@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/DASPRiD/temporal-extra/compare/v1.1.1...v1.2.0) (2025-10-25)
+
+
+### Features
+
+* add comparator helpers ([fc811b6](https://github.com/DASPRiD/temporal-extra/commit/fc811b69c55d358d8152ad26371da660a7cb7384))
+
 ## [1.1.1](https://github.com/DASPRiD/temporal-extra/compare/v1.1.0...v1.1.1) (2025-10-23)
 
 
