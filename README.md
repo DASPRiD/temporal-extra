@@ -66,14 +66,15 @@ import {
   nextDayOfWeek,
   firstDayOfMonth,
   lastDayOfYear,
+  FRIDAY,
 } from "temporal-extra";
 
 const date = Temporal.PlainDate.from("2024-06-18");
 
-previousBusinessDay(date, [6, 7]); // skips Sat/Sun
-nextDayOfWeek(date, 5);            // jump to next Friday
-firstDayOfMonth(date);             // 2024-06-01
-lastDayOfYear(date);               // 2024-12-31
+previousBusinessDay(date, "en-US"); // skips Sat/Sun
+nextDayOfWeek(date, FRIDAY);        // jump to next Friday
+firstDayOfMonth(date);              // 2024-06-01
+lastDayOfYear(date);                // 2024-12-31
 ```
 
 All functions are type-safe and maintain the input type (`PlainDate`, `PlainDateTime`, or `ZonedDateTime`).
