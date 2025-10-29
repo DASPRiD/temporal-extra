@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/DASPRiD/temporal-extra/compare/v1.2.0...v1.3.0) (2025-10-29)
+
+
+### Features
+
+* add support for non-ISO calendar systems ([d580c06](https://github.com/DASPRiD/temporal-extra/commit/d580c0691dd1ff43c8112e2098f64fe29c8e8cf3))
+
 # [1.2.0](https://github.com/DASPRiD/temporal-extra/compare/v1.1.1...v1.2.0) (2025-10-25)
 
 
