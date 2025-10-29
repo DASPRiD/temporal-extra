@@ -180,19 +180,32 @@ describe("adjusters", () => {
     });
 
     describe("lastDayOfYear", () => {
-        it("returns Dec 31 of year", () => {
+        it("returns last day in ISO calendar", () => {
             const date = makeDate("2024-06-18");
             assert.equal(lastDayOfYear(date).toString(), "2024-12-31");
+        });
+
+        it("returns last day in hebrew calendar", () => {
+            const date = makeDate("2024-06-18").withCalendar("hebrew");
+            assert.equal(lastDayOfYear(date).toString(), "2024-10-02[u-ca=hebrew]");
         });
     });
 
     describe("firstDayOfNextMonth", () => {
-        it("returns next month's 1st", () => {
+        it("returns next month's 1st in ISO calendar", () => {
             const june = makeDate("2024-06-18");
             assert.equal(firstDayOfNextMonth(june).toString(), "2024-07-01");
 
             const dec = makeDate("2024-12-15");
             assert.equal(firstDayOfNextMonth(dec).toString(), "2025-01-01");
+        });
+
+        it("returns next month's 1st in hebrew calendar", () => {
+            const june = makeDate("2024-06-18").withCalendar("hebrew");
+            assert.equal(firstDayOfNextMonth(june).toString(), "2024-07-07[u-ca=hebrew]");
+
+            const dec = makeDate("2024-12-15").withCalendar("hebrew");
+            assert.equal(firstDayOfNextMonth(dec).toString(), "2025-01-01[u-ca=hebrew]");
         });
     });
 

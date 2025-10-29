@@ -5,6 +5,16 @@ export type ComparableDate =
     | Temporal.ZonedDateTime;
 
 /**
+ * Returns true if the Temporal is equal to the reference.
+ *
+ * This comparator is different from the Temporal's `equals` method, as it only
+ * compares the point in time, ignoring the calendar system.
+ */
+export const isEqual = <T extends ComparableDate>(temporal: T, reference: NoInfer<T>): boolean => {
+    return compare(temporal, reference) === 0;
+};
+
+/**
  * Returns true if the Temporal is before the reference.
  */
 export const isBefore = <T extends ComparableDate>(temporal: T, reference: NoInfer<T>): boolean => {

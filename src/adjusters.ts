@@ -139,14 +139,15 @@ export const firstDayOfYear = <T extends AdjustableDate>(date: T): T => {
  * Returns the last day of the year.
  */
 export const lastDayOfYear = <T extends AdjustableDate>(date: T): T => {
-    return date.with({ month: 12, day: 31 }) as T;
+    const lastMonth = date.with({ month: date.monthsInYear });
+    return lastMonth.with({ day: lastMonth.daysInMonth }) as T;
 };
 
 /**
  * Returns the first day of the next month.
  */
 export const firstDayOfNextMonth = <T extends AdjustableDate>(date: T): T => {
-    return date.month === 12
+    return date.month === date.monthsInYear
         ? (date.with({ year: date.year + 1, month: 1, day: 1 }) as T)
         : (date.with({ month: date.month + 1, day: 1 }) as T);
 };
@@ -161,7 +162,9 @@ export const firstDayOfNextYear = <T extends AdjustableDate>(date: T): T => {
 /**
  * Returns the start of the day.
  */
-export const startOfDay = <T extends Temporal.PlainDateTime | Temporal.ZonedDateTime>(
+export const startOfDay = <
+    T extends Temporal.PlainTime | Temporal.PlainDateTime | Temporal.ZonedDateTime,
+>(
     dateTime: T,
 ): T => {
     return dateTime.with({
@@ -177,7 +180,9 @@ export const startOfDay = <T extends Temporal.PlainDateTime | Temporal.ZonedDate
 /**
  * Returns the end of the day.
  */
-export const endOfDay = <T extends Temporal.PlainDateTime | Temporal.ZonedDateTime>(
+export const endOfDay = <
+    T extends Temporal.PlainTime | Temporal.PlainDateTime | Temporal.ZonedDateTime,
+>(
     dateTime: T,
 ): T => {
     return dateTime.with({

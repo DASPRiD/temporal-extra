@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { isAfter, isAfterOrEqual, isBefore, isBeforeOrEqual } from "../src/index.js";
+import { isAfter, isAfterOrEqual, isBefore, isBeforeOrEqual, isEqual } from "../src/index.js";
 
 if (typeof Temporal === "undefined") {
     await import("temporal-polyfill/global");
@@ -18,6 +18,12 @@ describe("comparators", () => {
 
     const zonedDateTime1 = Temporal.ZonedDateTime.from("2024-06-18T10:00:00Z[UTC]");
     const zonedDateTime2 = Temporal.ZonedDateTime.from("2024-06-18T11:00:00Z[UTC]");
+
+    describe("isEqual", () => {
+        it("returns true for different calendar systems", () => {
+            assert.equal(isEqual(plainDate1, plainDate1.withCalendar("hebrew")), true);
+        });
+    });
 
     describe("isBefore", () => {
         it("works for PlainDate", () => {
