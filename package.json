@@ -40,8 +40,8 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "test": "c8 tsx --test",
-    "test:ci": "c8 --reporter=lcov tsx --test",
+    "test": "c8 tsx --import=./test/temporal-polyfill.ts --test",
+    "test:ci": "c8 --reporter=lcov tsx --import=./test/temporal-polyfill.ts --test",
     "format": "biome format . --write",
     "check": "biome check . --write"
   },

@@ -24,10 +24,6 @@ import {
     startOfDay,
 } from "../src/index.js";
 
-if (typeof Temporal === "undefined") {
-    await import("temporal-polyfill/global");
-}
-
 const makeDate = (iso: string) => Temporal.PlainDate.from(iso);
 
 describe("adjusters", () => {
