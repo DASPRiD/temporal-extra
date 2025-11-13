@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/DASPRiD/temporal-extra/compare/v1.3.0...v1.4.0) (2025-11-13)
+
+
+### Features
+
+* add NOON and MIDNIGHT constants ([40e2055](https://github.com/DASPRiD/temporal-extra/commit/40e2055560d02f4a2fbe11e577a105ed9776cf77))
+
 # [1.3.0](https://github.com/DASPRiD/temporal-extra/compare/v1.2.0...v1.3.0) (2025-10-29)
 
 
