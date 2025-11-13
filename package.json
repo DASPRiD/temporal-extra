@@ -39,7 +39,7 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && rm dist/temporal.d.ts && rm dist/temporal.js",
     "test": "c8 tsx --import=./test/temporal-polyfill.ts --test",
     "test:ci": "c8 --reporter=lcov tsx --import=./test/temporal-polyfill.ts --test",
     "format": "biome format . --write",
